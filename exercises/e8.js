@@ -6,6 +6,12 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
+  let p = data.planets
+  .find(function(planet){
+    return planet.hasOwnProperty("moons") && planet.moons.includes(moonName);
+  });
+
+  return p.name;
 }
 
 
