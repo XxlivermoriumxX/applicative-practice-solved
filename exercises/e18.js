@@ -11,7 +11,7 @@ export function getGreatestDiscoveryYear(data) {
   let yearsArr = [{year: 0, discoveries: 0}];
 
   for(let element of data.asteroids){
-    let yearObj = yearsArr.find(function(search){return search.year === element.discoveryYear;});
+    let yearObj = yearsArr.find((search) => {return search.year === element.discoveryYear;});
 
     if(yearObj){
       yearObj.discoveries += 1;

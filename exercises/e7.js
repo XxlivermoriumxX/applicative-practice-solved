@@ -6,13 +6,17 @@ import { data } from "../data/data";
 
 export function getPlanetsNamesWithMoons(data) {
   // Your code goes here...
-  return data.planets
-    .filter(function(planet){
-      return planet.hasOwnProperty("moons");
-    })
-    .map(function(planet){
-      return planet.name;
-    });
+
+/*  return data.planets
+    .filter((planet) => {planet.hasOwnProperty("moons")})
+    .map((planet) => {planet.name}); */
+
+    return data.planets.reduce((acc, planet) => {
+      if(planet.hasOwnProperty("moons")){
+        acc.push(planet.name);
+      }
+      return acc;
+    }, []);
 }
 
 

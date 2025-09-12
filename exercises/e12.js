@@ -6,17 +6,23 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
-  let total = 0;
+
+/*  let total = 0;
   let planetsMoons = data.planets
-  .filter(function(planet){
-    return planet.hasOwnProperty("moons");
-  })
-  .map(function(planet){
+  .filter((planet) =>{planet.hasOwnProperty("moons");})
+  .map((planet) => {
     total += planet.moonsCount;
     return planet;
   });
 
-  return total;
+  return total; */
+
+  return data.planets.reduce((acc, planet) => {
+    if(planet.hasOwnProperty("moons")){
+      acc += planet.moonsCount;
+    }
+    return acc;
+  }, 0)
 }
 
 
